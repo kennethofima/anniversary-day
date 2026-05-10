@@ -3,31 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yay! 🎉</title>
+    <title>Happy 3rd Anniversary ❤️</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .hearts-bg::before,
+        .hearts-bg::after {
+            content: "❤ ❤ ❤ ❤ ❤ ❤ ❤";
+            position: absolute;
+            width: 100%;
+            color: rgba(255,255,255,0.25);
+            font-size: 2rem;
+            animation: floatHearts 12s linear infinite;
+        }
+
+        .hearts-bg::after {
+            top: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatHearts {
+            from {
+                transform: translateY(100vh);
+            }
+            to {
+                transform: translateY(-120vh);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255,255,255,0.2);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 500px;
+        }
+
+        .yes-title {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .anniversary-text {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .gif-container img {
+            width: 220px;
+            border-radius: 20px;
+        }
+
+        .love-message {
+            margin-top: 20px;
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
+
 <body>
+
     <div class="hearts-bg"></div>
 
-    <div class="container yes-container">
-        <h1 class="yes-title">Knew you would say yes! 🎉</h1>
+    <div class="container">
+        <h1 class="yes-title">Happy 3rd Anniversary ❤️</h1>
+
+        <p class="anniversary-text">
+            Three years with you feels like the sweetest dream ever.
+        </p>
 
         <div class="gif-container">
-            <img id="cat-gif" src="https://media.tenor.com/eNHbizSfVb0AAAAj/lovemode-cute.gif" alt="celebrating">
+            <img 
+                src="https://media.tenor.com/eNHbizSfVb0AAAAj/lovemode-cute.gif" 
+                alt="cute anniversary gif"
+            >
         </div>
 
-        <p class="yes-message">You just made me the happiest person! 💕</p>
+        <p class="love-message">
+            Thank you for staying, loving, understanding, and growing with me.  
+            Every moment with you became one of my favorite memories.  
+            Here's to more anniversaries together forever. 💕
+        </p>
     </div>
 
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop autoplay>
         <source src="music/beabadoobee - Glue Song (Lyrics).mp3" type="audio/mpeg">
     </audio>
 
-    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">🔊</button>
+    <button id="music-toggle" onclick="toggleMusic()" title="Toggle music">
+        🔊
+    </button>
 
-    <script src="yes-script.js"></script>
+    <script>
+        // Confetti effect
+        window.onload = () => {
+            confetti({
+                particleCount: 180,
+                spread: 120,
+                origin: { y: 0.6 }
+            });
+        };
+
+        // Music toggle
+        const music = document.getElementById("bg-music");
+        const toggleBtn = document.getElementById("music-toggle");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                toggleBtn.innerHTML = "🔊";
+            } else {
+                music.pause();
+                toggleBtn.innerHTML = "🔈";
+            }
+        }
+    </script>
+
 </body>
 </html>
