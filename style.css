@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #ffe4e8;
+    background-color: #f2f2f2;
     font-family: 'Nunito', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -110,11 +110,10 @@ h1,
 .love-message,
 .yes-message {
     font-size: 1.2rem;
-    color: #ffe6ee; /* softer pink-white instead of pure white */
+    color: #f5f5f7; /* dark white / soft white */
     line-height: 1.7;
     font-weight: 700;
     margin-bottom: 25px;
-
     animation: fadeIn 1s ease 0.5s both;
 }
 
