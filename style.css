@@ -111,6 +111,7 @@ h1,
 .yes-message {
     font-size: 1.2rem;
     color: #ff4d6d; /* pink font added */
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     line-height: 1.7;
     font-weight: 700;
     margin-bottom: 25px;
